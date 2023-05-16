@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mariadb
--- Tiempo de generación: 15-05-2023 a las 18:28:31
+-- Tiempo de generación: 16-05-2023 a las 11:50:26
 -- Versión del servidor: 10.9.2-MariaDB-1:10.9.2+maria~ubu2204
 -- Versión de PHP: 8.0.22
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `probes`
 --
+CREATE DATABASE IF NOT EXISTS `probes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish2_ci;
+USE `probes`;
 
 -- --------------------------------------------------------
 
