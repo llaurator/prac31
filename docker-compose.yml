@@ -18,6 +18,7 @@ services:
       - 3306:3306
     volumes:
       - ./mariadb:/var/lib/mysql
+      - ./dump.sql:/docker-entrypoint-initdb.d/dump.sql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
       MYSQL_ROOT_PASSWORD: "Contrasenya"
