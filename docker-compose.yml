@@ -1,0 +1,32 @@
+version: "3"
+services:
+  php-apache:
+    build:
+      context: .
+    ports:
+      - 80:80
+    environment:
+      XDEBUG_CONFIG: remote_host=172.17.0.1 remote_port=9000 remote_enable=1
+    volumes:
+      - ./app:/var/www/html
+      - "./xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+    links:
+      - "mariadb"
+  mariadb:
+    image: mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+      MYSQL_ROOT_PASSWORD: "Contrasenya"
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8181:80
+    environment:
+      - PMA_ARBITRARY=1
+volumes:
+  mariadb:
